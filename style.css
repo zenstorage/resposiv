@@ -101,7 +101,7 @@ section.toposite {
 
 body {
     background-color: #f0ebe3;
-    height: 100vh;
+    height: 100%;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
@@ -248,10 +248,29 @@ section.Skills {
     color: #000000;
     padding: 40px;
     transition: .2s;
-    margin-top: 50px;
     border-radius: 22px;
     background: rgba(255, 255, 255, 0.1); /* Leve transparência */
     text-align: center;
+
+    /* Faz os elementos ficarem com o mesmo tamanho */
+    flex: 1;
+    
+    /* Definindo o tamanho do elemento, impedindo que fique desproporcinal */
+    height: 300px;
+    width: 300px;
+}
+
+/* As skills ficam na vertical quando a largura da pagina é menor que 1000px, impedindo das skills ficarem desalinhadas */
+@media (max-width: 1000px) {
+    .Skills .flex {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Remove os links vazios dentro do carousel, causando overflow no elemento pai (É bom tirar eles do html de não for usar) */
+.carousel > :is(a[href="https://estudio2ca.my.canva.site/home"], [href="https://atelierpatriciapacifico.com.br/2024/home/"]) {
+    display: none;
 }
 
 .Skills .Skillsbox:hover {
